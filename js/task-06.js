@@ -9,7 +9,7 @@ inputEl.addEventListener("blur", onFocusChange);
 
 
 function onFocusChange() {
-    if (inputEl.value.length === validationCondition) {
+    if (inputEl.value.trim().length === validationCondition) {
         inputEl.classList.add("valid");
         inputEl.classList.remove("invalid");
         
