@@ -3,7 +3,6 @@ const inputEl = document.querySelector('#controls > input');
 const createBtnEl = document.querySelector('[data-create]');
 const destroyBtnEl = document.querySelector('[data-destroy]');
 const boxesEl = document.querySelector('#boxes');
-const amount = Number(inputEl.value);
 
 
 
@@ -24,15 +23,16 @@ function createBoxes(amount) {
     
     
     const newDiv = document.createElement('div');
+    const size = `${30 + 10 * i}px`;
     
     
-    newDiv.style.width = `${30 + 10 * i}px`;
-    newDiv.style.height = `${30 + 10 * i}px`;
+    newDiv.style.width = size;
+    newDiv.style.height = size;
     newDiv.style.backgroundColor = getRandomHexColor();
   
-    elementsToAdd.push(newDiv);
+    // elementsToAdd.push(newDiv);
   }
-  return elementsToAdd;
+  return elementsToAdd.push(newDiv);
  }
   
 function onClickDestroyBtn() {
@@ -41,6 +41,6 @@ function onClickDestroyBtn() {
 
 
 function onClickCreateBtn() {
-  let boxesToAdd = createBoxes(inputEl.value);
+  let boxesToAdd = createBoxes(Number(inputEl.value));
   boxesEl.append(...boxesToAdd);
 }
